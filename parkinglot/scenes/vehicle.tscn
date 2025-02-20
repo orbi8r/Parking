@@ -1,0 +1,89 @@
+[gd_scene load_steps=22 format=3 uid="uid://bwsh0ffcj58db"]
+
+[ext_resource type="Script" path="res://scripts/vehicle.gd" id="1_8okhp"]
+[ext_resource type="PackedScene" uid="uid://bsut7svlditco" path="res://assets/vehicles/ambulance.glb" id="1_mtp28"]
+[ext_resource type="PackedScene" uid="uid://ctip33asgk7no" path="res://assets/vehicles/delivery-flat.glb" id="2_ebmng"]
+[ext_resource type="PackedScene" uid="uid://cjeem5tr4t6in" path="res://assets/vehicles/delivery.glb" id="3_6epa7"]
+[ext_resource type="PackedScene" uid="uid://ifgilhxn6txw" path="res://assets/vehicles/firetruck.glb" id="4_fg0yt"]
+[ext_resource type="PackedScene" uid="uid://bsw8f37ecqbcx" path="res://assets/vehicles/garbage-truck.glb" id="5_bymiy"]
+[ext_resource type="PackedScene" uid="uid://bo3sw4ty11u8h" path="res://assets/vehicles/hatchback-sports.glb" id="6_135ud"]
+[ext_resource type="PackedScene" uid="uid://d3jhvu66i7ls" path="res://assets/vehicles/police.glb" id="7_vri6p"]
+[ext_resource type="PackedScene" uid="uid://bd5ik0mu0e3va" path="res://assets/vehicles/race-future.glb" id="8_w33i4"]
+[ext_resource type="PackedScene" uid="uid://bos7rjruy0bgk" path="res://assets/vehicles/race.glb" id="9_fklhn"]
+[ext_resource type="PackedScene" uid="uid://dcv78ec8swg1y" path="res://assets/vehicles/sedan-sports.glb" id="10_as53h"]
+[ext_resource type="PackedScene" uid="uid://hbohn8etkye1" path="res://assets/vehicles/sedan.glb" id="11_85h8m"]
+[ext_resource type="PackedScene" uid="uid://bwyyj13dw0slp" path="res://assets/vehicles/suv-luxury.glb" id="12_t855i"]
+[ext_resource type="PackedScene" uid="uid://belgbcg6u1vr3" path="res://assets/vehicles/suv.glb" id="13_sf62e"]
+[ext_resource type="PackedScene" uid="uid://j64syuf0yth1" path="res://assets/vehicles/taxi.glb" id="14_swm74"]
+[ext_resource type="PackedScene" uid="uid://x0lqu3ok0av" path="res://assets/vehicles/tractor-police.glb" id="15_4qfew"]
+[ext_resource type="PackedScene" uid="uid://dhj3exxmo300v" path="res://assets/vehicles/tractor-shovel.glb" id="16_70bcd"]
+[ext_resource type="PackedScene" uid="uid://btu0cmj2knb0a" path="res://assets/vehicles/tractor.glb" id="17_a6j6m"]
+[ext_resource type="PackedScene" uid="uid://nsammepi3esh" path="res://assets/vehicles/truck-flat.glb" id="18_dqffq"]
+[ext_resource type="PackedScene" uid="uid://dc57n0qymtejv" path="res://assets/vehicles/truck.glb" id="19_q3pyo"]
+[ext_resource type="PackedScene" uid="uid://chx5x2nx2jfqt" path="res://assets/vehicles/van.glb" id="20_jvciu"]
+
+[node name="vehicle" type="Node3D"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0)
+script = ExtResource("1_8okhp")
+
+[node name="models" type="Node3D" parent="."]
+
+[node name="ambulance" parent="models" instance=ExtResource("1_mtp28")]
+visible = false
+
+[node name="delivery-flat" parent="models" instance=ExtResource("2_ebmng")]
+visible = false
+
+[node name="delivery" parent="models" instance=ExtResource("3_6epa7")]
+visible = false
+
+[node name="firetruck" parent="models" instance=ExtResource("4_fg0yt")]
+visible = false
+
+[node name="garbage-truck" parent="models" instance=ExtResource("5_bymiy")]
+visible = false
+
+[node name="hatchback-sports" parent="models" instance=ExtResource("6_135ud")]
+visible = false
+
+[node name="police" parent="models" instance=ExtResource("7_vri6p")]
+visible = false
+
+[node name="race-future" parent="models" instance=ExtResource("8_w33i4")]
+visible = false
+
+[node name="race" parent="models" instance=ExtResource("9_fklhn")]
+visible = false
+
+[node name="sedan-sports" parent="models" instance=ExtResource("10_as53h")]
+visible = false
+
+[node name="sedan" parent="models" instance=ExtResource("11_85h8m")]
+visible = false
+
+[node name="suv-luxury" parent="models" instance=ExtResource("12_t855i")]
+visible = false
+
+[node name="suv" parent="models" instance=ExtResource("13_sf62e")]
+visible = false
+
+[node name="taxi" parent="models" instance=ExtResource("14_swm74")]
+visible = false
+
+[node name="tractor-police" parent="models" instance=ExtResource("15_4qfew")]
+visible = false
+
+[node name="tractor-shovel" parent="models" instance=ExtResource("16_70bcd")]
+visible = false
+
+[node name="tractor" parent="models" instance=ExtResource("17_a6j6m")]
+visible = false
+
+[node name="truck-flat" parent="models" instance=ExtResource("18_dqffq")]
+visible = false
+
+[node name="truck" parent="models" instance=ExtResource("19_q3pyo")]
+visible = false
+
+[node name="van" parent="models" instance=ExtResource("20_jvciu")]
+visible = false

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3g0f0mxc352"]
+
+[ext_resource type="PackedScene" uid="uid://d3akge7w55e4b" path="res://assets/car-parking/car_parking.glb" id="1_b1v8o"]
+[ext_resource type="PackedScene" uid="uid://bwsh0ffcj58db" path="res://scenes/vehicle.tscn" id="2_higcr"]
+
+[node name="main" type="Node3D"]
+
+[node name="parking lot" parent="." instance=ExtResource("1_b1v8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.45, 0, 18.3263)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="parking lot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2157, 6.02071, -14.7192)
+size = Vector3(13.7791, 1, 7.32788)
+
+[node name="vehicle" parent="." instance=ExtResource("2_higcr")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 6.82919, 0, -4)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.584371, 0.565989, -0.581522, 0.401192, 0.824413, 0.399236, 0.705377, -1.80115e-08, -0.708833, 0, 8.49467, -10.9524)
