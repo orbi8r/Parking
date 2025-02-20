@@ -16,10 +16,11 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 [autoload]
 
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/supabase/plugin.cfg")
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg", "res://addons/supabase/plugin.cfg")
 
 [file_customization]
 
