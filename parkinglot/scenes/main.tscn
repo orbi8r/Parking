@@ -137,7 +137,6 @@ size = Vector3(5, 2, 3)
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_fkv83")
-speed = 75
 
 [node name="parking-model" parent="." instance=ExtResource("1_b1v8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 18)

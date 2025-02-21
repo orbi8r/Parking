@@ -21,14 +21,25 @@ var vehicle_global_positions = [Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.Z
 
 func _ready() -> void:
 	Supabase.auth.connect("signed_in", Callable(self, "_on_signed_in"))
+	Supabase.database.connect("updated", Callable(self, "_on_updated"))
 	Supabase.auth.sign_in("hariaakash646@gmail.com","loki@1357")
 	
 	var path_index = 0
 	instanciate_vehicle(path_index)
 
 
+func update():
+	var query = SupabaseQuery.new().from("ParkingSpot").update({"status": 0, "votes": 1}).eq("spot_id", "3")
+	Supabase.database.query(query)
+
+
+func _on_updated(result : Array):
+	print(result)
+
+
 func _on_signed_in(user : SupabaseUser):
-	print("Signed In as "+str(user)) 
+	print("Signed In as "+str(user))
+	update()
 
 
 func _process(delta: float) -> void:
