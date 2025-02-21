@@ -11,11 +11,21 @@ config_version=5
 [application]
 
 config/name="ParkingSpot"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+
+[autoload]
+
+Supabase="*res://addons/supabase/Supabase/supabase.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/supabase/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://addons/": "orange",
 "res://scenes/": "yellow",
 "res://scripts/": "green"
 }

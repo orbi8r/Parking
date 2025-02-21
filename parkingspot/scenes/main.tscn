@@ -1,137 +1,214 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4e5nmyyh1iyw"]
+[gd_scene load_steps=3 format=3 uid="uid://b4e5nmyyh1iyw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_oynkh"]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8oygi"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_oynkh")
 
-[node name="Buttons" type="Marker2D" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Spot0" type="Button" parent="Buttons"]
-offset_left = 4.0
-offset_top = 536.0
-offset_right = 104.0
-offset_bottom = 636.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.08
+anchor_right = 0.95
+anchor_bottom = 0.92
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Hbox0" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spot5" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot1" type="Button" parent="Buttons"]
-offset_left = 4.0
-offset_top = 430.0
-offset_right = 104.0
-offset_bottom = 530.0
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.5
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[node name="Spot6" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot2" type="Button" parent="Buttons"]
-offset_left = 4.0
-offset_top = 324.0
-offset_right = 104.0
-offset_bottom = 424.0
+[node name="Spot7" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot3" type="Button" parent="Buttons"]
-offset_left = 4.0
-offset_top = 218.0
-offset_right = 104.0
-offset_bottom = 318.0
+[node name="Spot8" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot4" type="Button" parent="Buttons"]
-offset_left = 4.0
-offset_top = 112.0
-offset_right = 104.0
-offset_bottom = 212.0
+[node name="Spot9" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot5" type="Button" parent="Buttons"]
-offset_left = 4.0
-offset_top = 6.0
-offset_right = 104.0
-offset_bottom = 106.0
+[node name="Spot10" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot6" type="Button" parent="Buttons"]
-offset_left = 308.0
-offset_top = 6.0
-offset_right = 408.0
-offset_bottom = 106.0
+[node name="Spot11" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot7" type="Button" parent="Buttons"]
-offset_left = 412.0
-offset_top = 6.0
-offset_right = 512.0
-offset_bottom = 106.0
+[node name="Spot12" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot8" type="Button" parent="Buttons"]
-offset_left = 516.0
-offset_top = 6.0
-offset_right = 616.0
-offset_bottom = 106.0
+[node name="Spot13" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot9" type="Button" parent="Buttons"]
-offset_left = 620.0
-offset_top = 6.0
-offset_right = 720.0
-offset_bottom = 106.0
+[node name="Hbox1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spot4" type="Button" parent="MarginContainer/VBoxContainer/Hbox1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot10" type="Button" parent="Buttons"]
-offset_left = 724.0
-offset_top = 6.0
-offset_right = 824.0
-offset_bottom = 106.0
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.89
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[node name="Hbox2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spot3" type="Button" parent="MarginContainer/VBoxContainer/Hbox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot11" type="Button" parent="Buttons"]
-offset_left = 828.0
-offset_top = 6.0
-offset_right = 928.0
-offset_bottom = 106.0
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.89
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[node name="Hbox3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spot2" type="Button" parent="MarginContainer/VBoxContainer/Hbox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot12" type="Button" parent="Buttons"]
-offset_left = 932.0
-offset_top = 6.0
-offset_right = 1032.0
-offset_bottom = 106.0
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.43
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[node name="Spot15" type="Button" parent="MarginContainer/VBoxContainer/Hbox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot13" type="Button" parent="Buttons"]
-offset_left = 1036.0
-offset_top = 6.0
-offset_right = 1136.0
-offset_bottom = 106.0
+[node name="Spot14" type="Button" parent="MarginContainer/VBoxContainer/Hbox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot14" type="Button" parent="Buttons"]
-offset_left = 533.0
-offset_top = 304.0
-offset_right = 633.0
-offset_bottom = 404.0
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.37
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[node name="Hbox4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spot1" type="Button" parent="MarginContainer/VBoxContainer/Hbox4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[node name="Spot15" type="Button" parent="Buttons"]
-offset_left = 429.0
-offset_top = 304.0
-offset_right = 529.0
-offset_bottom = 404.0
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.89
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[node name="Hbox5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spot0" type="Button" parent="MarginContainer/VBoxContainer/Hbox5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "0"
 
-[connection signal="pressed" from="Buttons/Spot0" to="." method="_on_spot_0_pressed"]
-[connection signal="pressed" from="Buttons/Spot1" to="." method="_on_spot_1_pressed"]
-[connection signal="pressed" from="Buttons/Spot2" to="." method="_on_spot_2_pressed"]
-[connection signal="pressed" from="Buttons/Spot3" to="." method="_on_spot_3_pressed"]
-[connection signal="pressed" from="Buttons/Spot4" to="." method="_on_spot_4_pressed"]
-[connection signal="pressed" from="Buttons/Spot5" to="." method="_on_spot_5_pressed"]
-[connection signal="pressed" from="Buttons/Spot6" to="." method="_on_spot_6_pressed"]
-[connection signal="pressed" from="Buttons/Spot7" to="." method="_on_spot_7_pressed"]
-[connection signal="pressed" from="Buttons/Spot8" to="." method="_on_spot_8_pressed"]
-[connection signal="pressed" from="Buttons/Spot9" to="." method="_on_spot_9_pressed"]
-[connection signal="pressed" from="Buttons/Spot10" to="." method="_on_spot_10_pressed"]
-[connection signal="pressed" from="Buttons/Spot11" to="." method="_on_spot_11_pressed"]
-[connection signal="pressed" from="Buttons/Spot12" to="." method="_on_spot_12_pressed"]
-[connection signal="pressed" from="Buttons/Spot13" to="." method="_on_spot_13_pressed"]
-[connection signal="pressed" from="Buttons/Spot14" to="." method="_on_spot_14_pressed"]
-[connection signal="pressed" from="Buttons/Spot15" to="." method="_on_spot_15_pressed"]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.89
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot5" to="." method="_on_spot_5_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot6" to="." method="_on_spot_6_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot7" to="." method="_on_spot_7_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot8" to="." method="_on_spot_8_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot9" to="." method="_on_spot_9_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot10" to="." method="_on_spot_10_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot11" to="." method="_on_spot_11_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot12" to="." method="_on_spot_12_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot13" to="." method="_on_spot_13_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox1/Spot4" to="." method="_on_spot_4_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox2/Spot3" to="." method="_on_spot_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox3/Spot2" to="." method="_on_spot_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox3/Spot15" to="." method="_on_spot_15_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox3/Spot14" to="." method="_on_spot_14_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox4/Spot1" to="." method="_on_spot_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox5/Spot0" to="." method="_on_spot_0_pressed"]
