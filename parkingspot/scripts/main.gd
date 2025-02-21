@@ -1,29 +1,38 @@
 extends Control
 
 # Buttons
-@onready var spot_5: Button = $MarginContainer/VBoxContainer/Hbox0/Spot5
-@onready var spot_6: Button = $MarginContainer/VBoxContainer/Hbox0/Spot6
-@onready var spot_7: Button = $MarginContainer/VBoxContainer/Hbox0/Spot7
-@onready var spot_8: Button = $MarginContainer/VBoxContainer/Hbox0/Spot8
-@onready var spot_9: Button = $MarginContainer/VBoxContainer/Hbox0/Spot9
-@onready var spot_10: Button = $MarginContainer/VBoxContainer/Hbox0/Spot10
-@onready var spot_11: Button = $MarginContainer/VBoxContainer/Hbox0/Spot11
-@onready var spot_12: Button = $MarginContainer/VBoxContainer/Hbox0/Spot12
-@onready var spot_13: Button = $MarginContainer/VBoxContainer/Hbox0/Spot13
-@onready var spot_4: Button = $MarginContainer/VBoxContainer/Hbox1/Spot4
-@onready var spot_3: Button = $MarginContainer/VBoxContainer/Hbox2/Spot3
-@onready var spot_2: Button = $MarginContainer/VBoxContainer/Hbox3/Spot2
-@onready var spot_14: Button = $MarginContainer/VBoxContainer/Hbox3/Spot14
-@onready var spot_15: Button = $MarginContainer/VBoxContainer/Hbox3/Spot15
-@onready var spot_1: Button = $MarginContainer/VBoxContainer/Hbox4/Spot1
-@onready var spot_0: Button = $MarginContainer/VBoxContainer/Hbox5/Spot0
+@onready var spot_5: Button = $AspectContainer/VBoxContainer/Hbox0/Spot5
+@onready var spot_6: Button = $AspectContainer/VBoxContainer/Hbox0/Spot6
+@onready var spot_7: Button = $AspectContainer/VBoxContainer/Hbox0/Spot7
+@onready var spot_8: Button = $AspectContainer/VBoxContainer/Hbox0/Spot8
+@onready var spot_9: Button = $AspectContainer/VBoxContainer/Hbox0/Spot9
+@onready var spot_10: Button = $AspectContainer/VBoxContainer/Hbox0/Spot10
+@onready var spot_11: Button = $AspectContainer/VBoxContainer/Hbox0/Spot11
+@onready var spot_12: Button = $AspectContainer/VBoxContainer/Hbox0/Spot12
+@onready var spot_13: Button = $AspectContainer/VBoxContainer/Hbox0/Spot13
+@onready var spot_4: Button = $AspectContainer/VBoxContainer/Hbox1/Spot4
+@onready var spot_3: Button = $AspectContainer/VBoxContainer/Hbox2/Spot3
+@onready var spot_2: Button = $AspectContainer/VBoxContainer/Hbox3/Spot2
+@onready var spot_14: Button = $AspectContainer/VBoxContainer/Hbox3/Spot14
+@onready var spot_15: Button = $AspectContainer/VBoxContainer/Hbox3/Spot15
+@onready var spot_1: Button = $AspectContainer/VBoxContainer/Hbox4/Spot1
+@onready var spot_0: Button = $AspectContainer/VBoxContainer/Hbox5/Spot0
 
 var button_counts = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+var button_status = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var buttons = []
+var client : RealtimeClient
+var channel : RealtimeChannel
 
 func _ready() -> void:
+	client = Supabase.realtime.client("https://kezixoocewyodhfolhfu.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtleml4b29jZXd5b2RoZm9saGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTY1MjQsImV4cCI6MjA1NTY5MjUyNH0.agKtWS7fFJ88j296ygMmG4BRx3bEZsdPE3RDx4hui0I")
+	client.connect("connected", Callable(self, "_on_connected"))
+	client.connect_client()
 	Supabase.database.connect("updated", Callable(self, "_on_updated"))
+	Supabase.database.connect("selected", Callable(self, "_on_selected"))
 	buttons = [spot_0,spot_1,spot_2,spot_3,spot_4,spot_5,spot_6,spot_7,spot_8,spot_9,spot_10,spot_11,spot_12,spot_13,spot_14,spot_15]
+	var query = SupabaseQuery.new().from("ParkingSpot").select()
+	Supabase.database.query(query)
 
 
 func _process(delta: float) -> void:
@@ -31,8 +40,26 @@ func _process(delta: float) -> void:
 		buttons[button_index].text = str(button_counts[button_index])
 
 
+func _on_connected():
+	print("connected realtime")
+	channel = client.channel("public", "ParkingSpot")
+	channel.connect("update", Callable(self, "_on_insert"))
+	channel.subscribe()
+
+
+func _on_insert(old_record : Dictionary, new_record : Dictionary, channel : RealtimeChannel):
+	button_counts[new_record["spot_id"]] = new_record["votes"]
+	button_status[new_record["spot_id"]] = new_record["status"]
+
+
 func _on_updated(result : Array):
 	print(result)
+
+func _on_selected(result : Array):
+	print("fetched initial data")
+	for index in range(0,button_counts.size()):
+		button_counts[result[index]["spot_id"]] = result[index]["votes"]
+		button_status[result[index]["spot_id"]] = result[index]["status"]
 
 
 func select_button_counts() -> void:

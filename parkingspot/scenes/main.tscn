@@ -21,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="AspectContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -30,185 +30,186 @@ anchor_right = 0.95
 anchor_bottom = 0.92
 grow_horizontal = 2
 grow_vertical = 2
+ratio = 1.7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectContainer"]
 layout_mode = 2
 
-[node name="Hbox0" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Hbox0" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spot5" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot5" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.5
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[node name="Spot6" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot6" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot7" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot7" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot8" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot8" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot9" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot9" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot10" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot10" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot11" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot11" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot12" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot12" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot13" type="Button" parent="MarginContainer/VBoxContainer/Hbox0"]
+[node name="Spot13" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Hbox1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Hbox1" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spot4" type="Button" parent="MarginContainer/VBoxContainer/Hbox1"]
+[node name="Spot4" type="Button" parent="AspectContainer/VBoxContainer/Hbox1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox1"]
+[node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.89
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[node name="Hbox2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Hbox2" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spot3" type="Button" parent="MarginContainer/VBoxContainer/Hbox2"]
+[node name="Spot3" type="Button" parent="AspectContainer/VBoxContainer/Hbox2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox2"]
+[node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.89
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[node name="Hbox3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Hbox3" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spot2" type="Button" parent="MarginContainer/VBoxContainer/Hbox3"]
+[node name="Spot2" type="Button" parent="AspectContainer/VBoxContainer/Hbox3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox3"]
+[node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.43
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[node name="Spot15" type="Button" parent="MarginContainer/VBoxContainer/Hbox3"]
+[node name="Spot15" type="Button" parent="AspectContainer/VBoxContainer/Hbox3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="Spot14" type="Button" parent="MarginContainer/VBoxContainer/Hbox3"]
+[node name="Spot14" type="Button" parent="AspectContainer/VBoxContainer/Hbox3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox3"]
+[node name="VSeparator2" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.37
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[node name="Hbox4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Hbox4" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spot1" type="Button" parent="MarginContainer/VBoxContainer/Hbox4"]
+[node name="Spot1" type="Button" parent="AspectContainer/VBoxContainer/Hbox4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox4"]
+[node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.89
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[node name="Hbox5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Hbox5" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Spot0" type="Button" parent="MarginContainer/VBoxContainer/Hbox5"]
+[node name="Spot0" type="Button" parent="AspectContainer/VBoxContainer/Hbox5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "0"
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/Hbox5"]
+[node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.89
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot5" to="." method="_on_spot_5_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot6" to="." method="_on_spot_6_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot7" to="." method="_on_spot_7_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot8" to="." method="_on_spot_8_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot9" to="." method="_on_spot_9_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot10" to="." method="_on_spot_10_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot11" to="." method="_on_spot_11_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot12" to="." method="_on_spot_12_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox0/Spot13" to="." method="_on_spot_13_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox1/Spot4" to="." method="_on_spot_4_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox2/Spot3" to="." method="_on_spot_3_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox3/Spot2" to="." method="_on_spot_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox3/Spot15" to="." method="_on_spot_15_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox3/Spot14" to="." method="_on_spot_14_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox4/Spot1" to="." method="_on_spot_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Hbox5/Spot0" to="." method="_on_spot_0_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot5" to="." method="_on_spot_5_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot6" to="." method="_on_spot_6_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot7" to="." method="_on_spot_7_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot8" to="." method="_on_spot_8_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot9" to="." method="_on_spot_9_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot10" to="." method="_on_spot_10_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot11" to="." method="_on_spot_11_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot12" to="." method="_on_spot_12_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox0/Spot13" to="." method="_on_spot_13_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox1/Spot4" to="." method="_on_spot_4_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox2/Spot3" to="." method="_on_spot_3_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox3/Spot2" to="." method="_on_spot_2_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox3/Spot15" to="." method="_on_spot_15_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox3/Spot14" to="." method="_on_spot_14_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox4/Spot1" to="." method="_on_spot_1_pressed"]
+[connection signal="pressed" from="AspectContainer/VBoxContainer/Hbox5/Spot0" to="." method="_on_spot_0_pressed"]
