@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dw3g0f0mxc352"]
+[gd_scene load_steps=21 format=3 uid="uid://dw3g0f0mxc352"]
 
 [ext_resource type="PackedScene" uid="uid://d3akge7w55e4b" path="res://assets/car-parking/car_parking.glb" id="1_b1v8o"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_fkv83"]
+[ext_resource type="Script" path="res://scripts/sensors.gd" id="3_u8pa7"]
 
 [sub_resource type="Curve3D" id="Curve3D_phmbd"]
 bake_interval = 23.78
@@ -131,13 +132,17 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_woltx"]
+size = Vector3(5, 2, 3)
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_fkv83")
+speed = 75
 
 [node name="parking-model" parent="." instance=ExtResource("1_b1v8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 18)
 
-[node name="paths" type="Node3D" parent="."]
+[node name="paths" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6254, 0, 12.2823)
 
 [node name="Path0" type="Path3D" parent="paths"]
@@ -252,3 +257,135 @@ curve = SubResource("Curve3D_wy5eb")
 [node name="PathFollow3D" type="PathFollow3D" parent="paths/Path15"]
 rotation_mode = 0
 loop = false
+
+[node name="sensors" type="Node" parent="."]
+script = ExtResource("3_u8pa7")
+
+[node name="sensor0" type="Area3D" parent="sensors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1987, 1, 12.119)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor0"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor1" type="Area3D" parent="sensors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1987, 1, 8.75352)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor1"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor2" type="Area3D" parent="sensors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1987, 1, 5.32673)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor2"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor3" type="Area3D" parent="sensors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1987, 1, 1.97976)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor3"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor4" type="Area3D" parent="sensors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1987, 1, -1.38569)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor4"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor5" type="Area3D" parent="sensors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1987, 1, -4.81248)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor5"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor6" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.20091, 1, -13.7274)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor6"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor7" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.83555, 1, -13.7515)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor7"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor8" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.591157, 1, -13.7759)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor8"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor9" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.92, 1, -13.7274)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor9"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor10" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.28536, 1, -13.7515)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor10"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor11" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.7121, 1, -13.7759)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor11"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor12" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.9734, 1, -13.7515)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor12"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor13" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.4001, 1, -13.7759)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor13"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor14" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.7306, 1, 2.04417)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor14"]
+shape = SubResource("BoxShape3D_woltx")
+
+[node name="sensor15" type="Area3D" parent="sensors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.303895, 1, 2.06863)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor15"]
+shape = SubResource("BoxShape3D_woltx")
+
+[connection signal="area_entered" from="sensors/sensor0" to="sensors" method="_on_sensor_0_area_entered"]
+[connection signal="area_exited" from="sensors/sensor0" to="sensors" method="_on_sensor_0_area_exited"]
+[connection signal="area_entered" from="sensors/sensor1" to="sensors" method="_on_sensor_1_area_entered"]
+[connection signal="area_exited" from="sensors/sensor1" to="sensors" method="_on_sensor_1_area_exited"]
+[connection signal="area_entered" from="sensors/sensor2" to="sensors" method="_on_sensor_2_area_entered"]
+[connection signal="area_exited" from="sensors/sensor2" to="sensors" method="_on_sensor_2_area_exited"]
+[connection signal="area_entered" from="sensors/sensor3" to="sensors" method="_on_sensor_3_area_entered"]
+[connection signal="area_exited" from="sensors/sensor3" to="sensors" method="_on_sensor_3_area_exited"]
+[connection signal="area_entered" from="sensors/sensor4" to="sensors" method="_on_sensor_4_area_entered"]
+[connection signal="area_exited" from="sensors/sensor4" to="sensors" method="_on_sensor_4_area_exited"]
+[connection signal="area_entered" from="sensors/sensor5" to="sensors" method="_on_sensor_5_area_entered"]
+[connection signal="area_exited" from="sensors/sensor5" to="sensors" method="_on_sensor_5_area_exited"]
+[connection signal="area_entered" from="sensors/sensor6" to="sensors" method="_on_sensor_6_area_entered"]
+[connection signal="area_exited" from="sensors/sensor6" to="sensors" method="_on_sensor_6_area_exited"]
+[connection signal="area_entered" from="sensors/sensor7" to="sensors" method="_on_sensor_7_area_entered"]
+[connection signal="area_exited" from="sensors/sensor7" to="sensors" method="_on_sensor_7_area_exited"]
+[connection signal="area_entered" from="sensors/sensor8" to="sensors" method="_on_sensor_8_area_entered"]
+[connection signal="area_exited" from="sensors/sensor8" to="sensors" method="_on_sensor_8_area_exited"]
+[connection signal="area_entered" from="sensors/sensor9" to="sensors" method="_on_sensor_9_area_entered"]
+[connection signal="area_exited" from="sensors/sensor9" to="sensors" method="_on_sensor_9_area_exited"]
+[connection signal="area_entered" from="sensors/sensor10" to="sensors" method="_on_sensor_10_area_entered"]
+[connection signal="area_exited" from="sensors/sensor10" to="sensors" method="_on_sensor_10_area_exited"]
+[connection signal="area_entered" from="sensors/sensor11" to="sensors" method="_on_sensor_11_area_entered"]
+[connection signal="area_exited" from="sensors/sensor11" to="sensors" method="_on_sensor_11_area_exited"]
+[connection signal="area_entered" from="sensors/sensor12" to="sensors" method="_on_sensor_12_area_entered"]
+[connection signal="area_exited" from="sensors/sensor12" to="sensors" method="_on_sensor_12_area_exited"]
+[connection signal="area_entered" from="sensors/sensor13" to="sensors" method="_on_sensor_13_area_entered"]
+[connection signal="area_exited" from="sensors/sensor13" to="sensors" method="_on_sensor_13_area_exited"]
+[connection signal="area_entered" from="sensors/sensor14" to="sensors" method="_on_sensor_14_area_entered"]
+[connection signal="area_exited" from="sensors/sensor14" to="sensors" method="_on_sensor_14_area_exited"]
+[connection signal="area_entered" from="sensors/sensor15" to="sensors" method="_on_sensor_15_area_entered"]
+[connection signal="area_exited" from="sensors/sensor15" to="sensors" method="_on_sensor_15_area_exited"]

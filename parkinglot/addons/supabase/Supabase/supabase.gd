@@ -11,8 +11,8 @@ var storage : SupabaseStorage
 var debug: bool = false
 
 var config : Dictionary = {
-	"supabaseUrl": "",
-	"supabaseKey": ""
+	"supabaseUrl": "https://kezixoocewyodhfolhfu.supabase.co",
+	"supabaseKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtleml4b29jZXd5b2RoZm9saGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTY1MjQsImV4cCI6MjA1NTY5MjUyNH0.agKtWS7fFJ88j296ygMmG4BRx3bEZsdPE3RDx4hui0I"
 }
 
 var header : PackedStringArray = [

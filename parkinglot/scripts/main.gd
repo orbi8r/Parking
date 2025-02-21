@@ -20,8 +20,15 @@ var vehicle_global_positions = [Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.Z
 
 
 func _ready() -> void:
+	Supabase.auth.connect("signed_in", Callable(self, "_on_signed_in"))
+	Supabase.auth.sign_in("hariaakash646@gmail.com","loki@1357")
+	
 	var path_index = 0
 	instanciate_vehicle(path_index)
+
+
+func _on_signed_in(user : SupabaseUser):
+	print("Signed In as "+str(user)) 
 
 
 func _process(delta: float) -> void:
@@ -54,10 +61,11 @@ func progress_vehicles(delta) -> void:
 			continue
 		vehicle_positions[index] += speed * delta
 		paths.get_child(index).get_child(0).progress = vehicle_positions[index]
-		paths.get_child(index).get_child(0).get_child(0).look_at(vehicle_global_positions[index]+vehicle_velocitys[index].normalized(),Vector3.UP)
-		vehicle_velocitys[index] = (vehicle_global_positions[index] - 
-			paths.get_child(index).get_child(0).get_child(0).global_position) / delta
-		vehicle_global_positions[index] = paths.get_child(index).get_child(0).get_child(0).global_position
+		if vehicle_global_positions[index] != paths.get_child(index).get_child(0).get_child(0).global_position:
+			paths.get_child(index).get_child(0).get_child(0).look_at(vehicle_global_positions[index]+vehicle_velocitys[index],Vector3.UP)
+			vehicle_velocitys[index] = (vehicle_global_positions[index] - 
+				paths.get_child(index).get_child(0).get_child(0).global_position) / delta
+			vehicle_global_positions[index] = paths.get_child(index).get_child(0).get_child(0).global_position
 
 
 func get_done_vehicle_index() -> int: #Temp function
