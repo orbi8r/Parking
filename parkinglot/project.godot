@@ -30,3 +30,7 @@ folder_colors={
 "res://scenes/": "yellow",
 "res://scripts/": "green"
 }
+
+[physics]
+
+3d/default_gravity=0.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dw3g0f0mxc352"]
+[gd_scene load_steps=19 format=3 uid="uid://dw3g0f0mxc352"]
 
 [ext_resource type="PackedScene" uid="uid://d3akge7w55e4b" path="res://assets/car-parking/car_parking.glb" id="1_b1v8o"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_fkv83"]
 
 [sub_resource type="Curve3D" id="Curve3D_phmbd"]
 bake_interval = 23.78
@@ -114,14 +115,6 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Curve3D" id="Curve3D_wy5eb"]
-bake_interval = 40.0
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -16.925, 0, -0.67, 0, 0, 0, 0, 0, 0, -22.53, 0, -7.6, 0, 0, 0, 0, 0, 0, -21.695, 0, -15.68, 0, 0, 0, 0, 0, 0, -16.225, 0, -16.04, 0, 0, 0, 0, 0, 0, -15.43, 0, -9.53),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
-
 [sub_resource type="Curve3D" id="Curve3D_pftms"]
 bake_interval = 40.0
 _data = {
@@ -130,7 +123,16 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Curve3D" id="Curve3D_wy5eb"]
+bake_interval = 40.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -16.925, 0, -0.67, 0, 0, 0, 0, 0, 0, -22.53, 0, -7.6, 0, 0, 0, 0, 0, 0, -21.695, 0, -15.68, 0, 0, 0, 0, 0, 0, -16.225, 0, -16.04, 0, 0, 0, 0, 0, 0, -15.43, 0, -9.53),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
 [node name="main" type="Node3D"]
+script = ExtResource("1_fkv83")
 
 [node name="parking-model" parent="." instance=ExtResource("1_b1v8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 18)
@@ -138,50 +140,115 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 18)
 [node name="paths" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6254, 0, 12.2823)
 
-[node name="Path1" type="Path3D" parent="paths"]
+[node name="Path0" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_phmbd")
 
-[node name="Path2" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path0"]
+rotation_mode = 0
+loop = false
+
+[node name="Path1" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_fqu47")
 
-[node name="Path3" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path1"]
+rotation_mode = 0
+loop = false
+
+[node name="Path2" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_50dsn")
 
-[node name="Path4" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path2"]
+rotation_mode = 0
+loop = false
+
+[node name="Path3" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_0a72r")
 
-[node name="Path5" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path3"]
+rotation_mode = 0
+loop = false
+
+[node name="Path4" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_msn55")
 
-[node name="Path6" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path4"]
+rotation_mode = 0
+loop = false
+
+[node name="Path5" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_fvqm1")
 
-[node name="Path7" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path5"]
+rotation_mode = 0
+loop = false
+
+[node name="Path6" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_mboo7")
 
-[node name="Path8" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path6"]
+rotation_mode = 0
+loop = false
+
+[node name="Path7" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_qwngq")
 
-[node name="Path9" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path7"]
+rotation_mode = 0
+loop = false
+
+[node name="Path8" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_ivo7l")
 
-[node name="Path10" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path8"]
+rotation_mode = 0
+loop = false
+
+[node name="Path9" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_w70x0")
 
-[node name="Path11" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path9"]
+rotation_mode = 0
+loop = false
+
+[node name="Path10" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_0bx1c")
 
-[node name="Path12" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path10"]
+rotation_mode = 0
+loop = false
+
+[node name="Path11" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_ao4u7")
 
-[node name="Path13" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path11"]
+rotation_mode = 0
+loop = false
+
+[node name="Path12" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_61qfy")
 
-[node name="Path14" type="Path3D" parent="paths"]
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path12"]
+rotation_mode = 0
+loop = false
+
+[node name="Path13" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_8np0r")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path13"]
+rotation_mode = 0
+loop = false
+
+[node name="Path14" type="Path3D" parent="paths"]
+curve = SubResource("Curve3D_pftms")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+rotation_mode = 0
+loop = false
 
 [node name="Path15" type="Path3D" parent="paths"]
 curve = SubResource("Curve3D_wy5eb")
 
-[node name="Path16" type="Path3D" parent="paths"]
-curve = SubResource("Curve3D_pftms")
+[node name="PathFollow3D" type="PathFollow3D" parent="paths/Path15"]
+rotation_mode = 0
+loop = false
