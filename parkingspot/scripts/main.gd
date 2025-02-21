@@ -55,6 +55,7 @@ func _on_insert(old_record : Dictionary, new_record : Dictionary, channel : Real
 func _on_updated(result : Array):
 	print(result)
 
+
 func _on_selected(result : Array):
 	print("fetched initial data")
 	for index in range(0,button_counts.size()):
