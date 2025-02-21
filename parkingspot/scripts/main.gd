@@ -23,6 +23,7 @@ var button_status = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var buttons = []
 var client : RealtimeClient
 var channel : RealtimeChannel
+var fetched_initial_data = 0
 
 func _ready() -> void:
 	client = Supabase.realtime.client("https://kezixoocewyodhfolhfu.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtleml4b29jZXd5b2RoZm9saGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTY1MjQsImV4cCI6MjA1NTY5MjUyNH0.agKtWS7fFJ88j296ygMmG4BRx3bEZsdPE3RDx4hui0I")
@@ -38,6 +39,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for button_index in range(0,buttons.size()):
 		buttons[button_index].text = str(button_counts[button_index])
+		if button_status[button_index] == 0:
+			set_stylebox_color(buttons[button_index], Color.GREEN)
+		elif button_status[button_index] == 1:
+			set_stylebox_color(buttons[button_index], Color.YELLOW)
+		else:
+			set_stylebox_color(buttons[button_index], Color.RED)
+
+
+func set_stylebox_color(button: Button, color: Color):
+	var stylebox_theme: StyleBoxFlat = StyleBoxFlat.new()
+	stylebox_theme.bg_color = color
+	stylebox_theme.border_color = color
+	button.add_theme_stylebox_override("normal", stylebox_theme)
 
 
 func _on_connected():
@@ -57,6 +71,7 @@ func _on_updated(result : Array):
 
 
 func _on_selected(result : Array):
+	fetched_initial_data = 1
 	print("fetched initial data")
 	for index in range(0,button_counts.size()):
 		button_counts[result[index]["spot_id"]] = result[index]["votes"]
@@ -68,6 +83,10 @@ func select_button_counts() -> void:
 
 
 func on_spot_voted(spot_index) -> void:
+	if fetched_initial_data == 0:
+		return
+	if button_status[spot_index] != 0:
+		return
 	button_counts[spot_index] += 1
 	var query = SupabaseQuery.new().from("ParkingSpot").update({"votes": button_counts[spot_index]}).eq("spot_id", str(spot_index))
 	Supabase.database.query(query)

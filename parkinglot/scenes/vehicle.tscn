@@ -89,10 +89,6 @@ visible = false
 [node name="van" parent="models" instance=ExtResource("20_jvciu")]
 visible = false
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, -2.61186e-17, -8.74228e-08, -2.52884e-08, 0.957249, 0.289266, 8.36854e-08, 0.289266, -0.957249, 0, 3.36697, -5.08078)
-current = true
-
 [node name="sensor detection" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 

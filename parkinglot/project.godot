@@ -17,7 +17,6 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 Supabase="*res://addons/supabase/Supabase/supabase.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-Sensors="*res://scripts/sensors.gd"
 
 [editor_plugins]
 
