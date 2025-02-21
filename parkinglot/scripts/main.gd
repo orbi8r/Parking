@@ -16,6 +16,7 @@ var vehicle_global_positions = [Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.Z
 	Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,
 	Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,
 	Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO]
+var queue_new_vehicle_called = 0
 @export var speed = 5
 @export var despawner_time = 2500
 
@@ -83,6 +84,7 @@ func _on_signed_in(user : SupabaseUser):
 func _process(delta: float) -> void:
 	progress_vehicles(delta)
 	reset_done_vehicles()
+	remove_duplicate_vehicles()
 
 
 func reset_done_vehicles() -> void:
@@ -92,7 +94,9 @@ func reset_done_vehicles() -> void:
 
 
 func queue_new_vehicle() -> void:
-	
+	if queue_new_vehicle_called < 1:
+		return
+	queue_new_vehicle_called = -5
 	var new_index = button_counts.find(button_counts.max())
 	if button_counts.max() == 0:
 		for index in range(0,vehicle_positions.size()):
@@ -102,13 +106,15 @@ func queue_new_vehicle() -> void:
 	while button_status[new_index] == 2:
 		button_counts[new_index] = 0
 		new_index = button_counts.find(button_counts.max())
-		
-	#for index in range(0,vehicle_positions.size()):
-		#button_counts[index] = 0
-		#update_button_counts(index)
-		
-		
+	if button_status[new_index] == 1:
+		return
 	instanciate_vehicle(new_index)
+
+
+func remove_duplicate_vehicles() -> void:
+	for path_index in range(0,vehicle_positions.size()):
+		if paths.get_child(path_index).get_child(0).get_child_count() > 1:
+			paths.get_child(path_index).get_child(0).get_child(paths.get_child(path_index).get_child(0).get_child_count()-1).queue_free()
 
 
 func remove_vehicle(path_index) -> void:
@@ -132,6 +138,7 @@ func instanciate_vehicle(path_index) -> void:
 
 
 func progress_vehicles(delta) -> void:
+	queue_new_vehicle_called += 1
 	for index in range(0,vehicle_positions.size()):
 		if vehicle_positions[index] == -1 or paths.get_child(index).get_child(0).get_child_count() == 0:
 			continue
