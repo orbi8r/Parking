@@ -162,6 +162,7 @@ ease = 2
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_fkv83")
+despawner_time = 5000
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_isua8")

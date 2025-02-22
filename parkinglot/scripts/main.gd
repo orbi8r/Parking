@@ -40,9 +40,8 @@ func _ready() -> void:
 	client = Supabase.realtime.client("https://kezixoocewyodhfolhfu.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtleml4b29jZXd5b2RoZm9saGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTY1MjQsImV4cCI6MjA1NTY5MjUyNH0.agKtWS7fFJ88j296ygMmG4BRx3bEZsdPE3RDx4hui0I")
 	client.connect("connected", Callable(self, "_on_connected"))
 	client.connect_client()
-	Supabase.database.connect("selected", Callable(self, "_on_selected"))
-	var query = SupabaseQuery.new().from("ParkingSpot").select()
-	Supabase.database.query(query)
+	
+	reset_data()
 	
 	var path_index = 0
 	instanciate_vehicle(path_index)
@@ -60,12 +59,12 @@ func _on_insert(old_record : Dictionary, new_record : Dictionary, channel : Real
 	button_status[new_record["spot_id"]] = new_record["status"]
 
 
-func _on_selected(result : Array):
-	print(result)
-	print("fetched initial data")
+func reset_data():
+	print("reset initial data")
 	for index in range(0,button_counts.size()):
-		button_counts[result[index]["spot_id"]] = result[index]["votes"]
-		button_status[result[index]["spot_id"]] = 0
+		button_counts[index] = 0
+		update_button_counts(index)
+		button_status[index] = 0
 		update_button_status(index)
 
 
@@ -110,7 +109,7 @@ func queue_new_vehicle() -> void:
 			if button_status[index] != 2:
 				new_index = index
 				break
-	while button_status[new_index] == 2:
+	if button_status[new_index] == 2:
 		button_counts[new_index] = 0
 		new_index = button_counts.find(button_counts.max())
 	if button_status[new_index] == 1:
