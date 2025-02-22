@@ -5,6 +5,10 @@ var vehicle_scene = preload("res://scenes/vehicle.tscn")
 
 # Paths
 @onready var paths: Node3D = $paths
+@onready var phantom_camera_0: PhantomCamera3D = $PhantomCamera0
+@onready var phantom_camera_1: PhantomCamera3D = $PhantomCamera1
+@onready var phantom_camera_2: PhantomCamera3D = $PhantomCamera2
+@onready var phantom_camera_3: PhantomCamera3D = $PhantomCamera3
 
 # Vehicle Variables
 var vehicle_positions = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1]
@@ -16,6 +20,7 @@ var vehicle_global_positions = [Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.Z
 	Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,
 	Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,
 	Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO]
+var distance_to_cam = [Vector3.ZERO,Vector3.ZERO,Vector3.ZERO,Vector3.ZERO]
 var queue_new_vehicle_called = 0
 @export var speed = 5
 @export var despawner_time = 2500
@@ -24,12 +29,13 @@ var button_counts = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var button_status = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var client : RealtimeClient
 var channel : RealtimeChannel
+var camera_index = 0
 
 
 func _ready() -> void:
 	Supabase.auth.connect("signed_in", Callable(self, "_on_signed_in"))
 	Supabase.database.connect("updated", Callable(self, "_on_updated"))
-	#Supabase.auth.sign_in("hariaakash646@gmail.com","loki@1357")
+	#Supabase.auth.sign_in("hariaakash646@gmail.com","loki@1357")  #Nah i wont delete this
 	
 	client = Supabase.realtime.client("https://kezixoocewyodhfolhfu.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtleml4b29jZXd5b2RoZm9saGZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAxMTY1MjQsImV4cCI6MjA1NTY5MjUyNH0.agKtWS7fFJ88j296ygMmG4BRx3bEZsdPE3RDx4hui0I")
 	client.connect("connected", Callable(self, "_on_connected"))
@@ -85,6 +91,7 @@ func _process(delta: float) -> void:
 	progress_vehicles(delta)
 	reset_done_vehicles()
 	remove_duplicate_vehicles()
+	phantom_switch(camera_index)
 
 
 func reset_done_vehicles() -> void:
@@ -132,6 +139,7 @@ func instanciate_vehicle(path_index) -> void:
 	print("going to "+str(path_index))
 	var vehicle = vehicle_scene.instantiate()
 	paths.get_child(path_index).get_child(0).add_child(vehicle)
+	phantom_look_at(path_index)
 	vehicle_positions[path_index] = 0
 	button_status[path_index] = 1
 	update_button_status(path_index)
@@ -150,6 +158,36 @@ func progress_vehicles(delta) -> void:
 				paths.get_child(index).get_child(0).get_child(0).global_position) / delta
 			vehicle_global_positions[index] = paths.get_child(index).get_child(0).get_child(0).global_position
 
+
+func phantom_look_at(index) -> void:
+	camera_index = index
+	phantom_camera_0.look_at_target = paths.get_child(index).get_child(0)
+	phantom_camera_1.look_at_target = paths.get_child(index).get_child(0)
+	phantom_camera_2.look_at_target = paths.get_child(index).get_child(0)
+	phantom_camera_3.look_at_target = paths.get_child(index).get_child(0)
+
+
+func phantom_switch(index) -> void:
+	distance_to_cam = [phantom_camera_0.global_position.distance_squared_to(vehicle_global_positions[index]),
+		phantom_camera_1.global_position.distance_squared_to(vehicle_global_positions[index]),
+		phantom_camera_2.global_position.distance_squared_to(vehicle_global_positions[index]),
+		phantom_camera_3.global_position.distance_squared_to(vehicle_global_positions[index])]
+	var min_at = distance_to_cam.find(distance_to_cam.min())
+	phantom_camera_0.get_child(0).current = false
+	phantom_camera_1.get_child(0).current = false
+	phantom_camera_2.get_child(0).current = false
+	phantom_camera_3.get_child(0).current = false
+	if min_at == 3:
+		phantom_camera_3.get_child(0).current = true
+	elif min_at == 2:
+		phantom_camera_2.get_child(0).current = true
+	elif min_at == 1:
+		phantom_camera_1.get_child(0).current = true
+	else:
+		phantom_camera_0.get_child(0).current = true
+
+
+# Very good coding skillz ahead
 
 func _on_sensor_0_area_exited(_area: Area3D) -> void:
 	button_status[0] = 0

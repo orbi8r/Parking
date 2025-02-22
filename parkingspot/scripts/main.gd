@@ -31,6 +31,7 @@ func _ready() -> void:
 	client.connect_client()
 	Supabase.database.connect("updated", Callable(self, "_on_updated"))
 	Supabase.database.connect("selected", Callable(self, "_on_selected"))
+	Supabase.database.connect("error", Callable(self, "_on_error"))
 	buttons = [spot_0,spot_1,spot_2,spot_3,spot_4,spot_5,spot_6,spot_7,spot_8,spot_9,spot_10,spot_11,spot_12,spot_13,spot_14,spot_15]
 	var query = SupabaseQuery.new().from("ParkingSpot").select()
 	Supabase.database.query(query)
@@ -54,6 +55,9 @@ func set_stylebox_color(button: Button, color: Color):
 	button.add_theme_stylebox_override("normal", stylebox_theme)
 
 
+func _on_error(error):
+	print("error : "+str(error))
+
 func _on_connected():
 	print("connected realtime")
 	channel = client.channel("public", "ParkingSpot")
@@ -71,7 +75,7 @@ func _on_updated(result : Array):
 
 
 func _on_selected(result : Array):
-	fetched_initial_data = 1
+	fetched_initial_data = 1                                              ## WEB APP PROBLEM <-------
 	print("fetched initial data")
 	for index in range(0,button_counts.size()):
 		button_counts[result[index]["spot_id"]] = result[index]["votes"]

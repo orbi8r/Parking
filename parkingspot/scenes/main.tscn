@@ -43,6 +43,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 60
 text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox0"]
@@ -55,48 +56,56 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot7" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot8" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot9" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot10" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot11" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot12" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot13" type="Button" parent="AspectContainer/VBoxContainer/Hbox0"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Hbox1" type="HBoxContainer" parent="AspectContainer/VBoxContainer"]
@@ -107,6 +116,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox1"]
@@ -123,6 +133,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox2"]
@@ -139,6 +150,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox3"]
@@ -151,12 +163,14 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8oygi")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="Spot14" type="Button" parent="AspectContainer/VBoxContainer/Hbox3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="VSeparator2" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox3"]
@@ -173,6 +187,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox4"]
@@ -189,6 +204,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 70
 text = "0"
 
 [node name="VSeparator" type="VSeparator" parent="AspectContainer/VBoxContainer/Hbox5"]

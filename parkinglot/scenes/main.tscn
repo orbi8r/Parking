@@ -1,7 +1,27 @@
-[gd_scene load_steps=20 format=3 uid="uid://dw3g0f0mxc352"]
+[gd_scene load_steps=27 format=3 uid="uid://dw3g0f0mxc352"]
 
 [ext_resource type="PackedScene" uid="uid://d3akge7w55e4b" path="res://assets/car-parking/car_parking.glb" id="1_b1v8o"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_fkv83"]
+[ext_resource type="Texture2D" uid="uid://ca1bwysm7mv3d" path="res://assets/free_-_skybox_sunroof_in_the_city_0.jpg" id="2_ruige"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="4_cobtl"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_nq218"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jursm"]
+panorama = ExtResource("2_ruige")
+
+[sub_resource type="Sky" id="Sky_nrvbo"]
+sky_material = SubResource("PanoramaSkyMaterial_jursm")
+
+[sub_resource type="Environment" id="Environment_isua8"]
+background_mode = 2
+sky = SubResource("Sky_nrvbo")
+sky_rotation = Vector3(3.14159, 1.5708, 0)
+ambient_light_source = 3
+ambient_light_color = Color(0.221108, 0.16625, 0.0825825, 0.203922)
+ambient_light_sky_contribution = 0.4
+ambient_light_energy = 0.0
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="Curve3D" id="Curve3D_phmbd"]
 bake_interval = 23.78
@@ -134,8 +154,21 @@ point_count = 6
 [sub_resource type="BoxShape3D" id="BoxShape3D_woltx"]
 size = Vector3(5, 2, 3)
 
+[sub_resource type="Resource" id="Resource_v4y27"]
+script = ExtResource("5_nq218")
+duration = 1.0
+transition = 0
+ease = 2
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_fkv83")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_isua8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.9964, -0.0158224, 0.0832837, -8.15847e-09, 0.982428, 0.186644, -0.0847734, 0.185972, -0.978891, 110.009, 54.6049, -185.267)
+sky_mode = 1
 
 [node name="parking-model" parent="." instance=ExtResource("1_b1v8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 18)
@@ -245,7 +278,6 @@ loop = false
 curve = SubResource("Curve3D_pftms")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="paths/Path14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 rotation_mode = 0
 loop = false
 
@@ -354,8 +386,37 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.3038
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sensors/sensor15"]
 shape = SubResource("BoxShape3D_woltx")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25.8578, 0)
+[node name="PhantomCamera0" type="Node3D" parent="."]
+transform = Transform3D(-0.617983, 0.543274, -0.568287, -2.98023e-08, 0.722836, 0.69102, 0.786191, 0.427039, -0.446701, 17.9286, 3.79236, 13.2304)
+script = ExtResource("4_cobtl")
+look_at_mode = 2
+tween_resource = SubResource("Resource_v4y27")
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera0"]
+
+[node name="PhantomCamera1" type="Node3D" parent="."]
+transform = Transform3D(-0.617983, 0.543274, -0.568287, -2.98023e-08, 0.722836, 0.69102, 0.786191, 0.427039, -0.446701, -15.7928, 5.92444, -5.0084)
+script = ExtResource("4_cobtl")
+look_at_mode = 2
+tween_resource = SubResource("Resource_v4y27")
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera1"]
+
+[node name="PhantomCamera2" type="Node3D" parent="."]
+transform = Transform3D(-0.617983, 0.543274, -0.568287, -2.98023e-08, 0.722836, 0.69102, 0.786191, 0.427039, -0.446701, -6.61725, 5.4133, -15.6053)
+script = ExtResource("4_cobtl")
+look_at_mode = 2
+tween_resource = SubResource("Resource_v4y27")
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera2"]
+
+[node name="PhantomCamera3" type="Node3D" parent="."]
+transform = Transform3D(-0.617983, 0.543274, -0.568287, -2.98023e-08, 0.722836, 0.69102, 0.786191, 0.427039, -0.446701, 17.8568, 5.06768, -2.15578)
+script = ExtResource("4_cobtl")
+look_at_mode = 2
+tween_resource = SubResource("Resource_v4y27")
+
+[node name="Camera3D" type="Camera3D" parent="PhantomCamera3"]
 
 [connection signal="area_entered" from="sensors/sensor0" to="." method="_on_sensor_0_area_entered"]
 [connection signal="area_exited" from="sensors/sensor0" to="." method="_on_sensor_0_area_exited"]
