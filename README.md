@@ -1,6 +1,6 @@
 # Parking
 
-This project is a Class Activity for the Intro to IoT course at IIITH. It demonstrates a complete parking management solution with mobile clients, a simulated parking lot, and sensor integrations. [GithubWebLink](https://orbi8r.github.io/parking/)
+This project is a Class Activity for the Intro to IoT course at IIITH by CSD Bois. It demonstrates a complete parking management solution with mobile clients, a simulated parking lot, and sensor integrations. [GithubWebLink](https://orbi8r.github.io/parking/)
 
 ## Table of Contents
 - [Overview](#overview)
