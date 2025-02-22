@@ -16,15 +16,7 @@ The system integrates mobile clients with a simulated parking lot in Godot. Mobi
 ## Architecture
 
 Below is a diagram of the system architecture:
-
-```mermaid
-graph TD
-    A[Mobile Clients<br>(Webapp)] -- "REST API & MQTT Subscription" --> B[Supabase<br>(Edge Functions)]
-    B -- "Validated Parking Spot Reservation" --> C[PostgreSQL Database]
-    D[IR Sensors<br>(Parking Lot)] -- "Authenticated REST Signals" --> B
-    E[Godot Simulation<br>(Parking Lot)] -- "Real-time Status" --> B
-    A -- "View Vacant/Occupied Spots" --> B
-```
+![Architecture Diagram](images/Architecture.png)
 
 ## Technologies Used
 
